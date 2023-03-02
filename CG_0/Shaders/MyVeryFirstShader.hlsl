@@ -1,3 +1,8 @@
+cbuffer cBuffer : register(b0)
+{
+	float4 offset;
+};
+
 struct VS_IN
 {
 	float4 pos : POSITION0;
@@ -14,7 +19,7 @@ PS_IN VSMain( VS_IN input )
 {
 	PS_IN output = (PS_IN)0;
 	
-	output.pos = input.pos;
+	output.pos = input.pos + offset;
 	output.col = input.col;
 	
 	return output;
